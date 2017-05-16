@@ -21,7 +21,7 @@ class Admin extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->helper('url');
+		$this->load->model('m_admin');		
 	}
 
 
@@ -43,6 +43,22 @@ class Admin extends CI_Controller {
 	public function table(){
 		$table['table']=$this->input->post('table');		
 		$this->load->view('admin/table', $table);
+	}
+
+	public function logout()
+	{	// memutus koneksi di model m_aplikasi function putus_koneksi
+		$this->m_admin->putus_koneksi();	
+		
+		// semua variabel session akan dihapus dari memory
+		$array_session = $this->session->all_userdata();
+		$this->session->unset_userdata($array_session);	
+		unset($array_session);
+		
+		// memutus session
+		$this->session->sess_destroy();		
+		
+		// kembali lagi ke login
+		redirect(base_url('reglog'));
 	}
 
 }
