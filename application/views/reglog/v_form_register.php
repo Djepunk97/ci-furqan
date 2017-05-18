@@ -1,10 +1,20 @@
-<form id="form-register-user">
-Nama:<input type="text" name="nama" /><br>
-Email:<input type="email" name="email" /><br>
-Password:<input type="password" name="password" /><br>
-Tentang:<textarea name="tentang"></textarea><br>
-<input id="btn-register" type="submit" value="Register"><br>
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="wrap">
+				<p class="form-title">
+                    Sign UP</p>
+				<form id="form-register-user" class="login">
+				<input type="text" name="nama" placeholder="nama" /><br>
+				<input type="email" name="email" placeholder="email"/><br>
+				<input type="password" name="password" placeholder="password"/><br>
+				<textarea name="tentang" placeholder="tentang"></textarea><br>
+				<input id="btn-register" class="btn btn-success btn-sm" type="submit" value="Register"><br>
+				</form>
+				</div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
  $(document).ready(function(){
 	$("#form-register-user").submit(function(){
