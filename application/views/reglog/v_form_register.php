@@ -13,13 +13,8 @@ Tentang:<textarea name="tentang"></textarea><br>
 	 	url: '<?php echo site_url('reglog/proses_register');?>',
 	 	data: $(this).serialize(),
 		 success:function (data) {
-			 if(data=="gagal"){
-			 	 $('#main-view').prepend("<h2>Registrasi Gagal!</h2>");
-			 }else{
-			 	 $("#main-view").empty();
-		 		 $('#main-view').load("<?php echo site_url('reglog/login'); ?>");
-		 		 $('#main-view').prepend("<h2>Registrasi Berhasil!</h2>");
-			 }
+		  $('#main-view').load("<?php echo site_url('reglog/login'); ?>");
+		  $('#main-view').prepend("<h2>Registrasi Berhasil!</h2>");
 		 },
 		 error:function (){
 		 $('#main-view').prepend("<h2>Registrasi Gagal!</h2>");

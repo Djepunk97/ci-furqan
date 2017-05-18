@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Sign in/Sign up</title>
-	<script src="<?=site_url('assets/js/jquery-2.2.4.min.js')?>"></script>
+	<script src="<?=base_url('assets/js/jquery-2.2.4.min.js')?>"></script>
 </head>
 <body>
 <ul>

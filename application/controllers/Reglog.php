@@ -45,8 +45,8 @@ class Reglog extends CI_Controller
 			'level' => $cek->level
 			);
 			$this->session->set_userdata($array_session);
+			print "berhasil";
 		}else{
-			// kalau data tidak ada, maka redirect ke laman login
 			print "gagal";
 		}
 		
@@ -55,12 +55,13 @@ class Reglog extends CI_Controller
 	}
 
 	public function cek_level(){
-		$data=$this->session->userdata($array_session);
-		$level=$data['level'];
-		if ($level==0) {
+		$data['level']=$this->session->userdata('level');
+		if ($data['level']==0) {
 			redirect(base_url('admin'));
-		}else if($level==1){
+		}else if($data['level']==1){
 			redirect(base_url('pertanyaan'));
+		}else{
+			redirect(base_url('reglog'));
 		}
 	}
 }
