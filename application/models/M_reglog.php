@@ -9,7 +9,7 @@ class M_reglog extends CI_Model
 
 	function insert_user($data)
 	{	// query binding ditandai dengan "?" untuk security
-		$this->db->query("insert into user (id_user,nama,email,password,tentang,level) values(?,?,?,md5(?),?,?)",
+		$this->db->query("insert into users (id_user,nama,email,password,tentang,level) values(?,?,?,md5(?),?,?)",
 		 array('',$data['nama'],$data['email'],$data['password'],$data['tentang'],'1'));
 		
 		
@@ -19,7 +19,7 @@ class M_reglog extends CI_Model
 
 	function db_cek_login($data)
 	{	// query binding ditandai dengan "?" untuk security
-		$query = $this->db->query("select * from user where email = ? and password = md5(?)",
+		$query = $this->db->query("select * from users where email = ? and password = md5(?)",
 			array($data['email'],$data['password']));
 			
 		// mengembalikan hasil query

@@ -32,15 +32,15 @@
 	 	type: 'POST',
 	 	url: '<?php echo site_url('pertanyaan/proses_submit_pertanyaan');?>',
 	 	data: $(this).serialize(),
-		 success:function (data){
+		success:function (data){
 			 	 $("#main-view").empty();
 		 		 $("#main-view").load('<?php echo site_url('pertanyaan/v_all_pertanyaan');?>');
 		 		 $("#form-view").empty();
 		 		 $("#show-form").show();
 		 },
-		 error:function (){
-		 $('#form-view').prepend("<h2>Registrasi Gagal!</h2>");
-		 }
+		error:function (){
+		$('#form-view').prepend("<h2>Proses Bertanya Gagal!</h2>");
+		}
 	 });
 	 return false;
 	 });

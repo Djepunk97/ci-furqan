@@ -8,6 +8,10 @@
  <?php foreach ($daftar_jawaban as $jawaban) {?>
  <fieldset>
  <?php echo $jawaban->isi;?>
+ <br>
+ <?php echo "nilai vote : ".$jawaban->has_value;?>
+<a  href="javascript:vote(<?php echo $jawaban->id_jawaban;?>,<?php echo "1";?>)">UpVote</a>
+<a  href="javascript:vote(<?php echo $jawaban->id_jawaban;?>,<?php echo "-1";?>)">DownVote</a>
  </fieldset>
  <br />
 <?php 
@@ -43,4 +47,17 @@
 	 return false;
 	 });
  });
+
+function vote(param,val){
+	var target='<?php echo site_url('pertanyaan/v_vote_jawaban');?>';
+	var xdata={ id_jawaban : param,
+				value      : val
+			  }
+	$("#main-view").empty();
+			
+	$.post(target,xdata,function(data){
+	$("#main-view").html(data);
+	});
+ }
+
  </script>
